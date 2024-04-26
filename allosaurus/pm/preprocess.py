@@ -42,7 +42,7 @@ def framesig(sig, frame_len, frame_step, dither=1.0, preemph=0.97, remove_dc_off
     # check kaldi/src/feat/feature-window.h
     # the last frame_len-1 points might be cutoff
     padsignal = sig[:(numframes - 1) * frame_step + frame_len]
-    if wintype is 'povey':
+    if wintype == 'povey':
         win = np.empty(frame_len)
         for i in range(frame_len):
             win[i] = (0.5 - 0.5 * np.cos(2 * np.pi / (frame_len - 1) * i)) ** 0.85
